@@ -1,0 +1,8 @@
+{
+	"name": "dp_live",
+	"workspaces": [
+		"front",
+		"back",
+		"docs"
+	]
+}

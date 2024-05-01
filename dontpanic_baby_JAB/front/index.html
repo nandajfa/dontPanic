@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="module" src='./js/index.js' defer></script>
+	<title>Don't panic, baby</title>
+	<link rel="icon"
+		href="https://cdn.greatsoftwares.com.br/arquivos/paginas/7460-069a1f4f8b36e2f74a9525cd6e009e94.png">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+	<header>DON'T PANIC, BABY!</header>
+	<main>
+		<div id="title">
+			<h2>LAST ATTEMPT</h2>
+			<a title="Como jogar" target="_blank" href="https://github.com/42sp/dontpanic_baby_JAB">
+				<img class="icon" src="https://cdn-icons-png.flaticon.com/512/3668/3668345.png" alt="Game">
+			</a>
+		</div>
+		<div class="input">
+			<input class="last" readonly>
+			<input class="last" readonly>
+			<input class="last" readonly>
+			<input class="last" readonly>
+			<input class="last" readonly>
+			<input class="last" readonly>
+		</div>
+		<div class="input">
+			<input class="lastCrypt" readonly>
+			<input class="lastCrypt" readonly>
+			<input class="lastCrypt" readonly>
+			<input class="lastCrypt" readonly>
+			<input class="lastCrypt" readonly>
+			<input class="lastCrypt" readonly>
+		</div>
+		<h2>CURRENT ATTEMPT</h2>
+		<div>
+			<form onsubmit="submitToBeEvaluated(event)">
+				<div class="input">
+					<input type="text" class="current" maxlength="1" autofocus required
+						onkeydown="moveToNext(this, event)" />
+					<input type="text" class="current" maxlength="1" required onkeydown="moveToNext(this, event)" />
+					<input type="text" class="current" maxlength="1" required onkeydown="moveToNext(this, event)" />
+					<input type="text" class="current" maxlength="1" required onkeydown="moveToNext(this, event)" />
+					<input type="text" class="current" maxlength="1" required onkeydown="moveToNext(this, event)" />
+					<input type="text" class="current" maxlength="1" required onkeydown="moveToNext(this, event)" />
+				</div>
+				<p id="validation_text"></p>
+				<button id="button" type="submit">Submit</button>
+			</form>
+		</div>
+	</main>
+	<footer>Pasteright (c) @42saopaulo</footer>
+</body>
+
+</html>

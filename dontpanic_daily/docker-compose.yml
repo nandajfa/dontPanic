@@ -1,0 +1,51 @@
+version: '2'
+
+services:
+    proxy:
+        image: nginx
+        container_name: proxy
+        depends_on:
+            - front
+            - back
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf
+        ports:
+            - "8080:8080"
+    front:
+        build:
+            context: ./front
+        container_name: front
+        expose:
+            - "8081"
+    db:
+        image: postgres
+        container_name: db
+        # networks:
+        #     - dbnet
+        ports:
+            - "5432"
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=postgres
+        volumes:
+            - ./db/init.sh:/docker-entrypoint-initdb.d/init.sh
+    back:
+        build:
+            context: ./back
+        container_name: back
+        depends_on:
+            - db
+        restart: on-failure
+        volumes:
+            - type: bind
+              source: ./back/src
+              target: /src
+        # networks:
+        #     - dbnet
+        expose:
+            - "8082"
+
+# networks:
+#     dbnet:
+#         driver: bridge
